@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { userRouter } from "./routes/userRouter";
+import { itemRouter } from "./routes/itemRouter";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(
 app.use(express.json());
 
 app.use("/api/user", userRouter);
+app.use("/api/item", itemRouter);
 
 app.get("/api/hello", (req: Request, res: Response) => {
   res.send("Hello World");
